@@ -17,3 +17,11 @@ sqrt(2)
 sqrt(4)
 sqrt(1e-6)
 sqrt(1e60)
+
+def factorial(n: Int): Int = {
+  def factorialHelper(n: Int, acc: Int): Int =
+    if (n == 0) acc
+    else factorialHelper(n - 1, n * acc)
+
+  factorialHelper(n, acc = 1)
+}
