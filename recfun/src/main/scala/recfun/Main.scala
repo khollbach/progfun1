@@ -10,18 +10,9 @@ object Main {
     }
   }
 
-  /**
-   * Exercise 1
-   */
-    def pascal(c: Int, r: Int): Int = ???
-  
-  /**
-   * Exercise 2
-   */
-    def balance(chars: List[Char]): Boolean = ???
-  
-  /**
-   * Exercise 3
-   */
-    def countChange(money: Int, coins: List[Int]): Int = ???
-  }
+  def pascal(c: Int, r: Int): Int = ???
+
+  def balance(chars: List[Char]): Boolean = ???
+
+  def countChange(money: Int, coins: List[Int]): Int = ???
+}
