@@ -1,8 +1,6 @@
 package funsets
 
 import org.scalatest.FunSuite
-
-
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
@@ -47,7 +45,6 @@ class FunSetSuite extends FunSuite {
   //   assert(1 + 2 === 3)
   // }
 
-
   import FunSets._
 
   test("contains is implemented") {
@@ -87,7 +84,6 @@ class FunSetSuite extends FunSuite {
    * function "ignore" by "test".
    */
   test("singletonSet(1) contains 1") {
-
     /**
      * We create a new instance of the "TestSets" trait, this gives us access
      * to the values "s1" to "s3".
@@ -109,6 +105,4 @@ class FunSetSuite extends FunSuite {
       assert(!contains(s, 3), "Union 3")
     }
   }
-
-
 }
