@@ -2,7 +2,15 @@ object Main {
   def main(args: Array[String]) = {
     val t1 = new NonEmpty(3, new Empty, new Empty)
     val t2 = t1 incl 4
-    println(t1, t2)
+    println(t1)
+    println(t2)
+
+    val t3 = new Empty incl 5 incl 3 incl 7
+    val t4 = new Empty incl 9 incl 10 incl 6
+    val t5 = t3 union t4
+    println(t3)
+    println(t4)
+    println(t5)
   }
 }
 
@@ -25,23 +33,14 @@ class NonEmpty(elem: Int, left: IntSet, right: IntSet) extends IntSet {
     else if (x > elem) right contains x
     else true
 
-  def incl(x: Int): IntSet = new NonEmpty(x, new Empty, new Empty)
+  def incl(x: Int): IntSet =
+    if (x < elem) new NonEmpty(elem, left incl x, right)
+    else if (x > elem) new NonEmpty(elem, left, right incl x)
+    else this
 
   override def toString = "{" + left + elem + right + "}"
 
   def union(other: IntSet): IntSet = {
-    this
+    left union (right union (other incl elem))
   }
-
-  //def union(other: IntSet) = other match {
-    //case Empty => this
-    //case o: NonEmpty =>
-      //val left =
-        //if (o.elem < this.elem) this.left union o.elem
-        //else this.left
-      //val right =
-        //if (o.elem > this.elem) this.right union o.elem
-        //else this.right
-      //new NonEmpty(this.elem, left, right) union o.left union o.right
-  //}
 }
