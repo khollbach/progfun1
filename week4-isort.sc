@@ -4,15 +4,17 @@ object Main {
     println(isort(list))
   }
 
-  def isort(list: List[Int]): List[Int] = list match {
-    case List() => List()
-    case x :: xs => insert(x, isort(xs))
-  }
+  def isort(list: List[Int]): List[Int] = {
+    def insert(x: Int, xs: List[Int]): List[Int] = xs match {
+      case List() => List(x)
+      case y :: ys =>
+        if (x <= y) x :: xs
+        else y :: insert(x, ys)
+    }
 
-  def insert(x: Int, xs: List[Int]): List[Int] = xs match {
-    case List() => List(x)
-    case y :: ys =>
-      if (x <= y) x :: xs
-      else y :: insert(x, ys)
+    list match {
+      case List() => List()
+      case x :: xs => insert(x, isort(xs))
+    }
   }
 }
