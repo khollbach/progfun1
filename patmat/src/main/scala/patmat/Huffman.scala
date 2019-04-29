@@ -163,8 +163,8 @@ object Huffman {
     }
 
     trees match {
-      case Nil => throw new Error("combine empty list")
-      case List(t) => throw new Error("combine list with one element")
+      case Nil => Nil
+      case List(t) => trees
       case t1 :: t2 :: rest =>
         insert(makeCodeTree(t1, t2), rest)
     }
